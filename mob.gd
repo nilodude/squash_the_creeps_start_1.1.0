@@ -14,18 +14,12 @@ func _physics_process(delta):
 	var direction = Vector3.ZERO
 	
 	if(hitVel != Vector3.ZERO):
-		if hitVel.x > 0:
-			direction.x += 1
-		if hitVel.x < 0:
-			direction.x -= 1
-		if hitVel.z > 0:
-			direction.z += 1
-		if hitVel.z < 0:
-			direction.z -= 1
+		direction.x += velocity.x + hitVel.x
+		direction.z += velocity.z + hitVel.z
 			
 		if direction != Vector3.ZERO:
 			direction = direction.normalized()
-			$Pivot.look_at(position + direction, Vector3.UP)
+#			$Pivot.look_at(position + direction, Vector3.UP)
 
 		target_velocity.x = direction.x * 20
 		target_velocity.z = direction.z * 20
