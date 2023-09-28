@@ -31,7 +31,7 @@ func _physics_process(delta):
 	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
 		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
 		
-	velocity = target_velocity
+	
 	
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		target_velocity.y = jump_impulse
@@ -49,11 +49,10 @@ func _physics_process(delta):
 			if Vector3.UP.dot(collision.get_normal()) > 0.1:
 				mob.squash()
 				target_velocity.y = bounce_impulse
-			
-			
-			if Vector3(direction.x, 0, direction.z).dot(collision.get_normal()) > 0.1:
-				mob.beenhit(direction)
-				target_velocity.y = bounce_impulse/10
+			else:
+				mob.receiveHit(target_velocity)
+					
 	
+	velocity = target_velocity
 	
 	move_and_slide()
