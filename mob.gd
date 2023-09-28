@@ -29,15 +29,21 @@ func _physics_process(delta):
 
 		target_velocity.x = direction.x * 20
 		target_velocity.z = direction.z * 20
+#		target_velocity.y = 5
 		
 		target_velocity.x = target_velocity.x - (5 * delta)
 		target_velocity.z = target_velocity.z - (5 * delta)
+#		target_velocity.y = target_velocity.y - (5 * delta)
+		
 		
 		
 		velocity=target_velocity
 		
 		hitVel = Vector3.ZERO
-	
+		
+#	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
+#			velocity.y = velocity.y - (50 * delta)
+			
 	move_and_slide()
 	
 	
