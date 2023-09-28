@@ -57,9 +57,9 @@ collision_mask = 6
 transform = Transform3D(1, 0, 0, 0, 0.717507, 0.696552, 0, -0.696552, 0.717507, 0, 13.8382, 15.7706)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 0.996128, -0.0879208, 0, 0.0879208, 0.996128, 0, -1.01467, 1.0452)
+transform = Transform3D(1, 0, 0, 0, 0.998563, -0.0535735, 0, 0.0535735, 0.998563, 0, -1.01467, 1.0452)
 projection = 1
-size = 19.0
+size = 20.999
 near = 0.001
 far = 150.0
 

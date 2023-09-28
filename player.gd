@@ -5,7 +5,7 @@ extends CharacterBody3D
 # The downward acceleration when in the air, in meters per second squared.
 @export var fall_acceleration = 75
 @export var jump_impulse = 25
-@export var bounce_impulse = 5
+@export var bounce_impulse = 15
 
 var target_velocity = Vector3.ZERO
 
@@ -46,7 +46,7 @@ func _physics_process(delta):
 			var mob = collision.get_collider()
 			
 			# landing on enemy from above (when vectors are pointing similar directions, dot product between them is a high value)
-			if Vector3.UP.dot(collision.get_normal()) > 0.1:
+			if Vector3.UP.dot(collision.get_normal()) > 0.5:
 				mob.squash()
 				target_velocity.y = bounce_impulse
 			else:
