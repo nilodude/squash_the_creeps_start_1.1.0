@@ -35,7 +35,7 @@ point_count = 5
 
 [sub_resource type="Theme" id="Theme_l2siv"]
 default_font = ExtResource("4_p4nix")
-default_font_size = 22
+default_font_size = 28
 
 [sub_resource type="GDScript" id="GDScript_or86t"]
 
@@ -160,7 +160,7 @@ offset_right = 1.0
 offset_bottom = -59.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 43
+theme_override_font_sizes/font_size = 120
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -168,14 +168,15 @@ script = SubResource("GDScript_or86t")
 
 [node name="Label3" type="Label" parent="UserInterface/Retry"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.319444
-anchor_top = 0.542593
-anchor_right = 0.658333
-anchor_bottom = 0.687037
-offset_right = -3.05176e-05
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 51.5
+offset_bottom = 82.5
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
 text = "enga otra ve"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -183,18 +184,18 @@ autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="UserInterface/Retry"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.394444
-anchor_top = 0.614815
-anchor_right = 0.593056
-anchor_bottom = 0.688889
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 96.0
+offset_bottom = 122.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 18
 text = "press enter to restart"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [connection signal="die" from="Player" to="." method="game_over"]
 [connection signal="die" from="Player" to="." method="fall"]

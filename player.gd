@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 signal die
+signal levelup
 
 @export var speed = 18
 # The downward acceleration when in the air, in meters per second squared.

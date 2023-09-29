@@ -1,6 +1,7 @@
 extends Node
 
 @export var mob_scene: PackedScene
+var mobSize = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,13 +21,11 @@ func game_over():
 	$UserInterface/Retry.show()
 
 func _on_mob_timer_timeout():
-	var mob = mob_scene.instantiate()
-	var mobSize = get_tree().get_nodes_in_group("mob").size()
-	
-	if(mobSize > 5):
+	if(mobSize > 10):
 		$UserInterface/Retry/gameoverLabel.text = 'TOO MUCH SHIT'
 		game_over()
 	else:	
+		var mob = mob_scene.instantiate()
 		var mob_spawn_location = get_node("SpawnPath/SpawnLocation")
 		mob_spawn_location.progress_ratio = randf()
 	
@@ -35,8 +34,10 @@ func _on_mob_timer_timeout():
 	
 		mob.squashed.connect($UserInterface/ScoreLabel._on_mob_squashed.bind())
 		mob.squashed.connect($UserInterface/ShitLabel._on_mob_squashed.bind())
+		mob.squashed.connect($Player._on_mob_squashed.bind())
 		
 		mob.outBounds.connect($UserInterface/ShitLabel._on_mob_out.bind())
 		mob.spawned.connect($UserInterface/ShitLabel._on_mob_spawned.bind())
 		
 		add_child(mob)
+		mobSize = get_tree().get_nodes_in_group("mob").size()
