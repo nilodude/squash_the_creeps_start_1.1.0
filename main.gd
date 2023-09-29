@@ -12,13 +12,14 @@ func _unhandled_input(event):
 
 func game_over():
 	$MobTimer.stop()
+	$Player.moveDisabled = true
 	$UserInterface/Retry.show()
 
 func _on_mob_timer_timeout():
 	var mob = mob_scene.instantiate()
 	var mobSize = get_tree().get_nodes_in_group("mob").size()
 	
-	if(mobSize > 20):
+	if(mobSize > 5):
 		game_over()
 	else:	
 		var mob_spawn_location = get_node("SpawnPath/SpawnLocation")
@@ -28,5 +29,9 @@ func _on_mob_timer_timeout():
 		mob.initialize(mob_spawn_location.position, player_position)
 	
 		mob.squashed.connect($UserInterface/ScoreLabel._on_mob_squashed.bind())
-	
+		mob.squashed.connect($UserInterface/ShitLabel._on_mob_squashed.bind())
+		
+		mob.outBounds.connect($UserInterface/ShitLabel._on_mob_out.bind())
+		mob.spawned.connect($UserInterface/ShitLabel._on_mob_spawned.bind())
+		
 		add_child(mob)

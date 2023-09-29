@@ -23,4 +23,5 @@ shape = SubResource("BoxShape3D_wlrb0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0437573, 0.286843, 0.278376)
 aabb = AABB(-1.10931, -0.550131, -1.64667, 2.33679, 1.10026, 3.29333)
 
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

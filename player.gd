@@ -6,6 +6,7 @@ extends CharacterBody3D
 @export var fall_acceleration = 75
 @export var jump_impulse = 25
 @export var bounce_impulse = 15
+@export var moveDisabled = false
 
 var target_velocity = Vector3.ZERO
 
@@ -55,4 +56,5 @@ func _physics_process(delta):
 	
 	velocity = target_velocity
 	
-	move_and_slide()
+	if not moveDisabled:
+		move_and_slide()

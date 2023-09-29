@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bnr4gk2okjcpu"]
+[gd_scene load_steps=14 format=3 uid="uid://bnr4gk2okjcpu"]
 
 [ext_resource type="PackedScene" uid="uid://b1baaek2whnnn" path="res://player.tscn" id="1_0p54i"]
 [ext_resource type="Script" path="res://main.gd" id="1_cnjm4"]
 [ext_resource type="PackedScene" uid="uid://caakvh00g1x3f" path="res://mob.tscn" id="2_714gd"]
 [ext_resource type="FontFile" uid="uid://blw2522cjj4jt" path="res://fonts/Montserrat-Medium.ttf" id="4_p4nix"]
 [ext_resource type="Script" path="res://ScoreLabel.gd" id="5_c5l32"]
+[ext_resource type="Script" path="res://ShitLabel.gd" id="6_e6g5g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e0x7u"]
 size = Vector3(60, 1, 60)
@@ -116,7 +117,25 @@ offset_right = 118.0
 offset_bottom = 51.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("5_c5l32")
+
+[node name="ShitLabel" type="Label" parent="UserInterface"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -118.0
+offset_top = 20.0
+offset_right = -30.0
+offset_bottom = 51.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Shit: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_e6g5g")
 
 [node name="Retry" type="ColorRect" parent="UserInterface"]
 layout_mode = 1
@@ -129,19 +148,50 @@ color = Color(0.0235294, 0, 0.0980392, 0.34902)
 
 [node name="Label" type="Label" parent="UserInterface/Retry"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -14.0
-offset_right = 20.0
-offset_bottom = 14.0
+offset_left = 1.0
+offset_top = -99.5
+offset_right = 1.0
+offset_bottom = -59.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 43
+text = "TOO MUCH SHIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="UserInterface/Retry"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.319444
+anchor_top = 0.542593
+anchor_right = 0.658333
+anchor_bottom = 0.687037
+offset_right = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 0
 text = "enga otra ve"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="UserInterface/Retry"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.394444
+anchor_top = 0.614815
+anchor_right = 0.593056
+anchor_bottom = 0.688889
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "press enter to restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
