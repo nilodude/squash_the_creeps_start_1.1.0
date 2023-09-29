@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bnr4gk2okjcpu"]
+[gd_scene load_steps=16 format=3 uid="uid://bnr4gk2okjcpu"]
 
 [ext_resource type="PackedScene" uid="uid://b1baaek2whnnn" path="res://player.tscn" id="1_0p54i"]
 [ext_resource type="Script" path="res://main.gd" id="1_cnjm4"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://blw2522cjj4jt" path="res://fonts/Montserrat-Medium.ttf" id="4_p4nix"]
 [ext_resource type="Script" path="res://ScoreLabel.gd" id="5_c5l32"]
 [ext_resource type="Script" path="res://ShitLabel.gd" id="6_e6g5g"]
+[ext_resource type="Script" path="res://Level.gd" id="7_3icu4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e0x7u"]
 size = Vector3(40, 1, 50)
@@ -148,7 +149,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0235294, 0, 0.0980392, 0.34902)
 
-[node name="gameoverLabel" type="Label" parent="UserInterface/Retry"]
+[node name="gameover" type="Label" parent="UserInterface/Retry"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -166,7 +167,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 script = SubResource("GDScript_or86t")
 
-[node name="Label3" type="Label" parent="UserInterface/Retry"]
+[node name="enga" type="Label" parent="UserInterface/Retry"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -182,7 +183,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Label2" type="Label" parent="UserInterface/Retry"]
+[node name="restart" type="Label" parent="UserInterface/Retry"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -197,6 +198,62 @@ text = "press enter to restart"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="LevelUp" type="ColorRect" parent="UserInterface"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0235294, 0, 0.0980392, 0.34902)
+
+[node name="levelCompleted" type="Label" parent="UserInterface/LevelUp"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -99.5
+offset_right = 1.0
+offset_bottom = -59.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 120
+text = "LEVEL COMPLETED"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = SubResource("GDScript_or86t")
+
+[node name="continue" type="Label" parent="UserInterface/LevelUp"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 96.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "press enter to continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="UserInterface"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.5
+offset_right = 40.5
+offset_bottom = 39.0
+grow_horizontal = 2
+text = "Level "
+script = ExtResource("7_3icu4")
+
 [connection signal="die" from="Player" to="." method="game_over"]
 [connection signal="die" from="Player" to="." method="fall"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="levelup" from="UserInterface/ScoreLabel" to="." method="levelup"]
