@@ -10,6 +10,10 @@ func _unhandled_input(event):
 	if event.is_action_pressed("ui_accept") and $UserInterface/Retry.visible:
 		get_tree().reload_current_scene()
 
+func fall():
+	$UserInterface/Retry/gameoverLabel.text = "TA CAIO"
+	game_over()
+
 func game_over():
 	$MobTimer.stop()
 	$Player.moveDisabled = true
@@ -20,6 +24,7 @@ func _on_mob_timer_timeout():
 	var mobSize = get_tree().get_nodes_in_group("mob").size()
 	
 	if(mobSize > 5):
+		$UserInterface/Retry/gameoverLabel.text = 'TOO MUCH SHIT'
 		game_over()
 	else:	
 		var mob_spawn_location = get_node("SpawnPath/SpawnLocation")

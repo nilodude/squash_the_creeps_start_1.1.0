@@ -57,7 +57,7 @@ func _physics_process(delta):
 	
 	velocity = target_velocity
 	
-	if position.y < -10:
+	if position.y < -30:
 		die.emit()
 	
 	if not moveDisabled:
