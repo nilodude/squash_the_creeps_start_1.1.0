@@ -31,9 +31,6 @@ func _physics_process(delta):
 		target_velocity.z = target_velocity.z - (1 * delta)
 		target_velocity.y = target_velocity.y - (1 * delta)
 		
-#		rotate_y(minus*PI/8  + (randangle * delta))
-#		rotate_x(minus * PI/8  - (randangle * delta))
-		
 		velocity=target_velocity
 		
 		hitVel = Vector3.ZERO

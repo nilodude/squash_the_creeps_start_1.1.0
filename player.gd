@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+signal die
 
 @export var speed = 18
 # The downward acceleration when in the air, in meters per second squared.
@@ -55,6 +56,9 @@ func _physics_process(delta):
 					
 	
 	velocity = target_velocity
+	
+	if position.y < -10:
+		die.emit()
 	
 	if not moveDisabled:
 		move_and_slide()
