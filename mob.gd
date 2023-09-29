@@ -11,7 +11,7 @@ var hitVel = Vector3.ZERO
 
 func _physics_process(delta):
 	var direction = Vector3.ZERO
-	
+	var randangle = randf_range(-3*PI, 3*PI)
 	if(hitVel != Vector3.ZERO):
 		direction.x += velocity.x + hitVel.x
 		direction.z += velocity.z + hitVel.z
@@ -20,15 +20,15 @@ func _physics_process(delta):
 			direction = direction.normalized()
 #			$Pivot.look_at(position + direction, Vector3.UP)
 
-		target_velocity.x = direction.x * 20
-		target_velocity.z = direction.z * 20
+		target_velocity.x = direction.x * 15
+		target_velocity.z = direction.z * 15
 		target_velocity.y = 15
 		
-		target_velocity.x = target_velocity.x - (50 * delta)
-		target_velocity.z = target_velocity.z - (50 * delta)
-		target_velocity.y = target_velocity.y - (5 * delta)
+		target_velocity.x = target_velocity.x - (1 * delta)
+		target_velocity.z = target_velocity.z - (1 * delta)
+		target_velocity.y = target_velocity.y - (1 * delta)
 		
-		
+		rotate_y(PI/16  - (randangle * delta))
 		
 		velocity=target_velocity
 		
