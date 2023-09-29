@@ -4,7 +4,6 @@ signal squashed
 signal gotHit
 
 @export var min_speed = 10
-
 @export var max_speed = 18
 
 var target_velocity = velocity
@@ -23,11 +22,11 @@ func _physics_process(delta):
 
 		target_velocity.x = direction.x * 20
 		target_velocity.z = direction.z * 20
-#		target_velocity.y = 5
+		target_velocity.y = 15
 		
-		target_velocity.x = target_velocity.x - (5 * delta)
-		target_velocity.z = target_velocity.z - (5 * delta)
-#		target_velocity.y = target_velocity.y - (5 * delta)
+		target_velocity.x = target_velocity.x - (50 * delta)
+		target_velocity.z = target_velocity.z - (50 * delta)
+		target_velocity.y = target_velocity.y - (5 * delta)
 		
 		
 		
@@ -35,8 +34,8 @@ func _physics_process(delta):
 		
 		hitVel = Vector3.ZERO
 		
-#	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
-#			velocity.y = velocity.y - (50 * delta)
+	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
+			velocity.y = velocity.y - (50 * delta)
 			
 	move_and_slide()
 	
