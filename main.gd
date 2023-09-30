@@ -5,6 +5,17 @@ var mobSize = 0
 var level = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
+#	$UserInterface/Start.show()
+	init_player()
+	new_game()
+	
+func init_player():
+	$Player.position.x = -5.5 
+	$Player.position.z = 2.5 
+
+func new_game():
+	$UserInterface/Start.hide()
+	$MobTimer.start()
 	$UserInterface/ScoreLabel.reset()
 	$UserInterface/ShitLabel.reset()
 	$UserInterface/Retry.hide()
@@ -48,11 +59,12 @@ func levelup():
 	$MobTimer.stop()
 
 func nextLevel():
-	$MobTimer.start()
-	_ready()
+	new_game()
 	
 func _unhandled_input(event):
 	if (event.is_action_pressed("ui_accept")):
+		if($UserInterface/Start.visible):
+			new_game()
 		if($UserInterface/Retry.visible):
 			get_tree().reload_current_scene()
 		if($UserInterface/LevelUp.visible):

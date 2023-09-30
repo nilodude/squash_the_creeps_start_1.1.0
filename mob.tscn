@@ -48,7 +48,7 @@ script = ExtResource("1_1sc0n")
 [node name="Pivot" type="Node3D" parent="."]
 
 [node name="Character" parent="Pivot" instance=ExtResource("1_v36lp")]
-transform = Transform3D(0.986042, 0.155175, -0.0603506, -0.154103, 0.987808, 0.022067, 0.0630391, -0.0124588, 0.997933, 0.165225, 0.462545, 0)
+transform = Transform3D(0.98508, 0.00697621, -0.171958, 0.0172826, 0.990117, 0.139173, 0.17123, -0.140068, 0.975224, 0, 0.35, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.335872, 0)
