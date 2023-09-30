@@ -34,9 +34,9 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="Theme" id="Theme_dc7xb"]
+[sub_resource type="Theme" id="Theme_l2siv"]
 default_font = ExtResource("4_p4nix")
-default_font_size = 60
+default_font_size = 28
 
 [sub_resource type="GDScript" id="GDScript_or86t"]
 
@@ -115,7 +115,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_dc7xb")
+theme = SubResource("Theme_l2siv")
 
 [node name="ScoreLabel" type="Label" parent="UserInterface"]
 layout_mode = 1
@@ -166,7 +166,7 @@ offset_right = 1.0
 offset_bottom = -59.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 250
+theme_override_font_sizes/font_size = 120
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -178,11 +178,11 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = 44.0
-offset_bottom = 170.0
+offset_top = 51.5
+offset_bottom = 82.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 50
 text = "enga otra ve"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -194,17 +194,16 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = 141.5
-offset_bottom = 206.5
+offset_top = 96.0
+offset_bottom = 122.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 18
 text = "press enter to restart"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LevelUp" type="ColorRect" parent="UserInterface"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -220,12 +219,12 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 1.0
-offset_top = -230.5
+offset_top = -99.5
 offset_right = 1.0
-offset_bottom = 71.5
+offset_bottom = -59.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 200
+theme_override_font_sizes/font_size = 120
 text = "LEVEL COMPLETED"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -242,7 +241,7 @@ offset_top = 96.0
 offset_bottom = 122.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 18
 text = "press enter to continue"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -262,3 +261,4 @@ script = ExtResource("7_3icu4")
 [connection signal="die" from="Player" to="." method="fall"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="levelup" from="UserInterface/ScoreLabel" to="." method="levelup"]
+[connection signal="scoreUpdated" from="UserInterface/ScoreLabel" to="." method="_on_score_updated"]

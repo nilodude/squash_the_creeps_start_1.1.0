@@ -57,8 +57,3 @@ func _unhandled_input(event):
 		if($UserInterface/LevelUp.visible):
 			level += 1;
 			nextLevel()
-
-
-func _on_score_updated():
-	print('signal SCORE UPDATED')
-	$Player.set_deferred("isScoring",false)

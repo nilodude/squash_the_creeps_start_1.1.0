@@ -2,7 +2,6 @@ extends CharacterBody3D
 
 signal die
 signal levelup
-signal scoring
 
 @export var speed = 18
 # The downward acceleration when in the air, in meters per second squared.
@@ -10,7 +9,8 @@ signal scoring
 @export var jump_impulse = 25
 @export var bounce_impulse = 15
 @export var moveDisabled = false
-@export var isScoring = false
+
+var prevDot = 0;
 
 var target_velocity = Vector3.ZERO
 
@@ -35,35 +35,33 @@ func _physics_process(delta):
 	
 	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
 		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
-		
-	
+
 	
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		target_velocity.y = jump_impulse
 	
-	if !isScoring:
-		for index in range(get_slide_collision_count()):
-			var collision = get_slide_collision(index)
-			
-			if (collision.get_collider() == null):
-				continue
-			
-			if collision.get_collider().is_in_group("mob"):
-				var mob = collision.get_collider()
-				
-				print('collision')
-				print(collision)
-				
-				# landing on enemy from above (when vectors are pointing similar directions, dot product between them is a high value)
-				if Vector3.UP.dot(collision.get_normal()) > 0.5:
-					isScoring = true
-					mob.squash()
-					target_velocity.y = bounce_impulse
-				else:
-					mob.receiveHit(target_velocity)
-						
+
+	for index in range(get_slide_collision_count()):
+		var collision = get_slide_collision(index)
 		
-		velocity = target_velocity
+		if (collision.get_collider() == null):
+			continue
+		
+		if collision.get_collider().is_in_group("mob"):
+			var mob = collision.get_collider()
+			var normal = collision.get_normal()
+			var upDotProduct = Vector3.UP.dot(normal)
+	
+		# landing on enemy from above (when vectors are pointing similar directions, dot product between them is a high value)
+			if  upDotProduct > 0.7 && prevDot != upDotProduct:
+				prevDot = upDotProduct
+				target_velocity.y = bounce_impulse
+				mob.squash()
+			else:
+				mob.receiveHit(target_velocity)
+					
+	
+	velocity = target_velocity
 		
 	if position.y < -30:
 		die.emit()
