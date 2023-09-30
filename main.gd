@@ -38,9 +38,9 @@ func _on_mob_timer_timeout():
 		
 		mob.outBounds.connect($UserInterface/ShitLabel._on_mob_out.bind())
 		mob.spawned.connect($UserInterface/ShitLabel._on_mob_spawned.bind())
-		
-		add_child(mob)
 		mobSize = get_tree().get_nodes_in_group("mob").size()
+		add_child(mob)
+		
 
 func levelup():
 	$UserInterface/LevelUp/levelCompleted.text = "LEVEL %s COMPLETED" % level

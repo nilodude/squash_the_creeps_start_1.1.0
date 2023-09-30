@@ -34,11 +34,14 @@ func _physics_process(delta):
 		velocity=target_velocity
 		
 		hitVel = Vector3.ZERO
+	
 		
 	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
 		velocity.y = velocity.y - (50 * delta)
 		rotate_y(minus*PI/8  + (randangle * delta))
 		rotate_x(minus * PI/8  - (randangle * delta))
+	else:
+		$Pivot.look_at(position + velocity, Vector3.UP)
 			
 	move_and_slide()
 	
