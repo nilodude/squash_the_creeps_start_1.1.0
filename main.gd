@@ -2,7 +2,7 @@ extends Node
 
 @export var mob_scene: PackedScene
 var mobSize = 0
-var level = 0
+var level = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$UserInterface/ScoreLabel.reset()

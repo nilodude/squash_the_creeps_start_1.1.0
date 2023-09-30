@@ -1,6 +1,6 @@
 extends Label
 
-var level = 0
+var level = 1
 
 func levelup():
 	level += 1
