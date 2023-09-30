@@ -15,13 +15,13 @@ func _physics_process(delta):
 	var direction = Vector3.ZERO
 	var minus = randi_range(-1, 1)
 	var randangle = randf_range(-PI/4, PI/4)
-	if(hitVel != Vector3.ZERO):
+	if(hitVel.x != 0 || hitVel.z != 0):
 		direction.x += velocity.x + hitVel.x
 		direction.z += velocity.z + hitVel.z
 			
 		if direction != Vector3.ZERO:
 			direction = direction.normalized()
-#			$Pivot.look_at(position + direction, Vector3.UP)
+			$Pivot.look_at(position + direction, Vector3.UP)
 
 		target_velocity.x = direction.x * 20
 		target_velocity.z = direction.z * 20
@@ -49,6 +49,8 @@ func initialize(start_position, player_position):
 	var random_speed = randi_range(min_speed, max_speed)
 	velocity = Vector3.FORWARD * random_speed
 	velocity = velocity.rotated(Vector3.UP, rotation.y)
+	
+	$AnimationPlayer.speed_scale = random_speed / min_speed
 
 func _on_visible_on_screen_notifier_3d_screen_entered():
 	spawned.emit()
