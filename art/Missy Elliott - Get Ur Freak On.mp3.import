@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bk561oew1bf82"
+path="res://.godot/imported/Missy Elliott - Get Ur Freak On.mp3-7ddb0896aa23ad227e1209adf8e114b4.mp3str"
+
+[deps]
+
+source_file="res://art/Missy Elliott - Get Ur Freak On.mp3"
+dest_files=["res://.godot/imported/Missy Elliott - Get Ur Freak On.mp3-7ddb0896aa23ad227e1209adf8e114b4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
