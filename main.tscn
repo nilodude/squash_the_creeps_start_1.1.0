@@ -62,11 +62,6 @@ shadow_blur = 2.381
 
 [node name="Player" parent="." instance=ExtResource("1_0p54i")]
 collision_mask = 6
-speed = 18
-fall_acceleration = 75
-jump_impulse = 25
-bounce_impulse = 15
-moveDisabled = false
 
 [node name="CameraPivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.717507, 0.696552, 0, -0.696552, 0.717507, 0, 13.8382, 15.7706)
