@@ -57,9 +57,6 @@ func levelup():
 	$UserInterface/LevelUp/levelCompleted.text = "LEVEL %s COMPLETED" % level
 	$UserInterface/LevelUp.show()
 	$MobTimer.stop()
-
-func nextLevel():
-	new_game()
 	
 func _unhandled_input(event):
 	if (event.is_action_pressed("ui_accept")):
@@ -69,4 +66,4 @@ func _unhandled_input(event):
 			get_tree().reload_current_scene()
 		if($UserInterface/LevelUp.visible):
 			level += 1;
-			nextLevel()
+			new_game()
