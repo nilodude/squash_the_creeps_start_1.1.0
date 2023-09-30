@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 signal die
 signal levelup
+signal scoring
 
 @export var speed = 18
 # The downward acceleration when in the air, in meters per second squared.
@@ -9,6 +10,7 @@ signal levelup
 @export var jump_impulse = 25
 @export var bounce_impulse = 15
 @export var moveDisabled = false
+@export var isScoring = false
 
 var target_velocity = Vector3.ZERO
 
@@ -39,27 +41,32 @@ func _physics_process(delta):
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		target_velocity.y = jump_impulse
 	
-	for index in range(get_slide_collision_count()):
-		var collision = get_slide_collision(index)
-		
-		if (collision.get_collider() == null):
-			continue
-		
-		if collision.get_collider().is_in_group("mob"):
-			var mob = collision.get_collider()
+	if !isScoring:
+		for index in range(get_slide_collision_count()):
+			var collision = get_slide_collision(index)
 			
-			# landing on enemy from above (when vectors are pointing similar directions, dot product between them is a high value)
-			if Vector3.UP.dot(collision.get_normal()) > 0.5:
-				mob.squash()
-				target_velocity.y = bounce_impulse
-			else:
-				mob.receiveHit(target_velocity)
-					
-	
-	velocity = target_velocity
-	
+			if (collision.get_collider() == null):
+				continue
+			
+			if collision.get_collider().is_in_group("mob"):
+				var mob = collision.get_collider()
+				
+				print('collision')
+				print(collision)
+				
+				# landing on enemy from above (when vectors are pointing similar directions, dot product between them is a high value)
+				if Vector3.UP.dot(collision.get_normal()) > 0.5:
+					isScoring = true
+					mob.squash()
+					target_velocity.y = bounce_impulse
+				else:
+					mob.receiveHit(target_velocity)
+						
+		
+		velocity = target_velocity
+		
 	if position.y < -30:
 		die.emit()
-	
+		
 	if not moveDisabled:
 		move_and_slide()

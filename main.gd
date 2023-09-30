@@ -5,6 +5,8 @@ var mobSize = 0
 var level = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$UserInterface/ScoreLabel.reset()
+	$UserInterface/ShitLabel.reset()
 	$UserInterface/Retry.hide()
 	$UserInterface/LevelUp.hide()
 	$UserInterface/Level.text = "Level %s" % level
@@ -40,6 +42,7 @@ func _on_mob_timer_timeout():
 		mobSize = get_tree().get_nodes_in_group("mob").size()
 
 func levelup():
+	$UserInterface/LevelUp/levelCompleted.text = "LEVEL %s COMPLETED" % level
 	$UserInterface/LevelUp.show()
 	$MobTimer.stop()
 
@@ -55,3 +58,7 @@ func _unhandled_input(event):
 			level += 1;
 			nextLevel()
 
+
+func _on_score_updated():
+	print('signal SCORE UPDATED')
+	$Player.set_deferred("isScoring",false)

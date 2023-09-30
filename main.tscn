@@ -254,6 +254,6 @@ text = "Level "
 script = ExtResource("7_3icu4")
 
 [connection signal="die" from="Player" to="." method="fall"]
-[connection signal="die" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="levelup" from="UserInterface/ScoreLabel" to="." method="levelup"]
+[connection signal="scoreUpdated" from="UserInterface/ScoreLabel" to="." method="_on_score_updated"]

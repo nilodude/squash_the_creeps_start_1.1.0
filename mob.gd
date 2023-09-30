@@ -36,9 +36,9 @@ func _physics_process(delta):
 		hitVel = Vector3.ZERO
 		
 	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
-			velocity.y = velocity.y - (50 * delta)
-			rotate_y(minus*PI/8  + (randangle * delta))
-			rotate_x(minus * PI/8  - (randangle * delta))
+		velocity.y = velocity.y - (50 * delta)
+		rotate_y(minus*PI/8  + (randangle * delta))
+		rotate_x(minus * PI/8  - (randangle * delta))
 			
 	move_and_slide()
 	
@@ -63,4 +63,4 @@ func squash():
 
 func receiveHit(vel):
 	hitVel = vel
-	gotHit.emit()
+#	gotHit.emit()
