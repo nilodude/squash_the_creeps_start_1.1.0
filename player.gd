@@ -40,10 +40,10 @@ func _physics_process(delta):
 		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
 		$AnimationPlayer.speed_scale = 1.5
 		$Pivot.rotation.x = PI / 10 * target_velocity.y / jump_impulse
-		$Pivot.rotation.z = PI+PI * target_velocity.y / 30
+#		$Pivot.rotation.z = PI + PI * target_velocity.y / 25
 	else:	# JUMPING.
 		$Pivot.rotation.x = $Pivot.rotation.x - $Pivot.rotation.x/2
-		$Pivot.rotation.z = $Pivot.rotation.z - $Pivot.rotation.z/2
+#		$Pivot.rotation.z = $Pivot.rotation.z - $Pivot.rotation.z/2
 		
 	if Input.is_action_just_pressed("jump"):
 			target_velocity.y = jump_impulse	
