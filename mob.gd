@@ -69,3 +69,10 @@ func squash():
 func receiveHit(vel):
 	hitVel = vel
 #	gotHit.emit()
+
+func go_out(player_position):
+	player_position.y = 0
+	look_at_from_position(position ,position - player_position, Vector3.UP)
+	velocity = (position - player_position) 
+	
+	

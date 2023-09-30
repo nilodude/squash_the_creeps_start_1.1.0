@@ -54,9 +54,11 @@ func _on_mob_timer_timeout():
 		
 
 func levelup():
+	$MobTimer.stop()
+	get_tree().call_group("mob", "go_out", $Player.position)
 	$UserInterface/LevelUp/levelCompleted.text = "LEVEL %s COMPLETED" % level
 	$UserInterface/LevelUp.show()
-	$MobTimer.stop()
+	
 	
 func _unhandled_input(event):
 	if (event.is_action_pressed("ui_accept")):
