@@ -48,9 +48,13 @@ func _physics_process(delta):
 	else:	# JUMPING.
 		$Pivot.rotation.x = $Pivot.rotation.x - $Pivot.rotation.x/2
 		$Pivot/avion/Plane.rotation.z = $Pivot/avion/Plane.rotation.z - $Pivot/avion/Plane.rotation.z/2
+		$Pivot/avion/Plane.position.y = $Pivot/robo/Circle_004.position.y - 0.5
+		$Pivot/robo/Circle_004.position.y = $Pivot/avion/Plane.position.y + 0.5		
 		
 	if Input.is_action_just_pressed("jump"):
-			target_velocity.y = jump_impulse	
+			target_velocity.y = jump_impulse
+			$Pivot/avion/Plane.position.y = $Pivot/robo/Circle_004.position.y - 0.9	
+			$Pivot/robo/Circle_004.position.y = $Pivot/avion/Plane.position.y + 0.9	
 	
 	for index in range(get_slide_collision_count()):
 		var collision = get_slide_collision(index)
@@ -67,6 +71,8 @@ func _physics_process(delta):
 			if  upDotProduct > 0.7 && prevDot != upDotProduct:
 				prevDot = upDotProduct
 				target_velocity.y = bounce_impulse
+				$Pivot/avion/Plane.position.y = $Pivot/robo/Circle_004.position.y - 0.9	
+				$Pivot/robo/Circle_004.position.y = $Pivot/avion/Plane.position.y + 0.9	
 				mob.squash()
 			else:
 				mob.receiveHit(target_velocity)

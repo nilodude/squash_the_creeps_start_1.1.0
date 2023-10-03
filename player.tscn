@@ -26,18 +26,18 @@ script = ExtResource("1_itbrl")
 [node name="Pivot" type="Node3D" parent="."]
 
 [node name="Character2" parent="Pivot" instance=ExtResource("1_o3v2g")]
-transform = Transform3D(0.998183, 0.0602525, 0, -0.0599615, 0.993362, -0.0981653, -0.0059147, 0.0979869, 0.99517, 0, 0.540712, 0)
+transform = Transform3D(0.994086, 0.108594, 0, -0.108587, 0.994026, 0.0110481, 0.00119976, -0.0109828, 0.999939, 0, 0.198899, 0)
 visible = false
 
 [node name="Character" parent="Pivot" instance=ExtResource("3_es123")]
-transform = Transform3D(-0.998192, -0.060102, 8.70059e-08, -0.0598154, 0.993433, -0.0975387, 0.00586218, -0.0973624, -0.995232, 0, 0.540712, 0)
+transform = Transform3D(-0.994072, -0.108722, 8.74177e-08, -0.108715, 0.994015, 0.0107559, -0.00116949, 0.0106921, -0.999942, 0, 0.198899, 0)
 visible = false
 
 [node name="robo" parent="Pivot" instance=ExtResource("4_aymks")]
-transform = Transform3D(-0.998192, -0.060102, 8.70059e-08, -0.0598154, 0.993433, -0.0975387, 0.00586218, -0.0973624, -0.995232, 0, 0.540712, 0)
+transform = Transform3D(-0.994072, -0.108722, 8.74177e-08, -0.108715, 0.994015, 0.0107559, -0.00116949, 0.0106921, -0.999942, 0, 0.198899, 0)
 
 [node name="avion" parent="Pivot" instance=ExtResource("5_y1g0s")]
-transform = Transform3D(-0.998192, -0.060102, 8.70059e-08, -0.0598154, 0.993433, -0.0975387, 0.00586218, -0.0973624, -0.995232, 0, 0.540712, 0)
+transform = Transform3D(-0.994072, -0.108722, 8.74177e-08, -0.108715, 0.994015, 0.0107559, -0.00116949, 0.0106921, -0.999942, 0, 0.198899, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.999997, -0.000169227, -0.00242468, -0.000169229, 0.990305, -0.13891, 0.00242468, 0.13891, 0.990301, 0.00901863, 0.566676, 0.0533961)
