@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cn4kutgyu581w" path="res://art/marmalaKICKFLIP.glb" id="3_es123"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tvbr2"]
-size = Vector3(2, 1, 2)
+size = Vector3(2, 3.55942, 2.75909)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7niog"]
 _data = {
@@ -21,12 +21,13 @@ script = ExtResource("1_itbrl")
 
 [node name="Character2" parent="Pivot" instance=ExtResource("1_o3v2g")]
 transform = Transform3D(0.999848, -0.0174524, 0, 0.0172826, 0.990117, 0.139173, -0.00242891, -0.139152, 0.990268, 0, 0.35, 0)
+visible = false
 
 [node name="Character" parent="Pivot" instance=ExtResource("3_es123")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.19, 0)
+transform = Transform3D(-0.999848, 0.0174524, 8.6572e-08, 0.0172826, 0.990117, 0.139173, 0.00242882, 0.139152, -0.990268, 0, 0.35, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+transform = Transform3D(0.999997, -0.000169227, -0.00242468, -0.000169229, 0.990305, -0.13891, 0.00242468, 0.13891, 0.990301, 0.00901863, 0.566676, 0.0533961)
 shape = SubResource("BoxShape3D_tvbr2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
