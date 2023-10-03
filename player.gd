@@ -32,10 +32,14 @@ func _physics_process(delta):
 		$AnimationPlayer.speed_scale = 1.5
 	else:
 		$AnimationPlayer.speed_scale = 0.8
-
-	target_velocity.x = direction.x * speed
-	target_velocity.z = direction.z * speed
 	
+	if not moveDisabled:
+		target_velocity.x = direction.x * speed
+		target_velocity.z = direction.z * speed
+	else:
+		target_velocity.x = direction.x * 0
+		target_velocity.z = direction.z * 0
+		
 	if not is_on_floor(): # FALLING. Literally gravity
 		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
 		$AnimationPlayer.speed_scale = 1.5
@@ -73,5 +77,4 @@ func _physics_process(delta):
 	if position.y < -30:
 		die.emit()
 		
-	if not moveDisabled:
-		move_and_slide()
+	move_and_slide()

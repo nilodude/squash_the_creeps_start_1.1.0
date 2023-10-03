@@ -14,6 +14,7 @@ func init_player():
 	$Player.position.z = 2.5 
 
 func new_game():
+	$Player.moveDisabled = false
 	$UserInterface/Start.hide()
 	$MobTimer.start()
 	$UserInterface/ScoreLabel.reset()
@@ -55,6 +56,7 @@ func _on_mob_timer_timeout():
 
 func levelup():
 	$MobTimer.stop()
+	$Player.moveDisabled = true
 	get_tree().call_group("mob", "go_out", $Player.position)
 	$UserInterface/LevelUp/levelCompleted.text = "LEVEL %s COMPLETED" % level
 	$UserInterface/LevelUp.show()
