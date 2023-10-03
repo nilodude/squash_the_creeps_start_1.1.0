@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://buavfljw62qsc"
-path="res://.godot/imported/marmaladeO.glb-a1b2189995ceec2929a312b637a7116d.scn"
+uid="uid://nk2wigxtu53i"
+path="res://.godot/imported/robo.glb-30a5b75f0f103378b244043c20a2928c.scn"
 
 [deps]
 
-source_file="res://art/marmaladeO.glb"
-dest_files=["res://.godot/imported/marmaladeO.glb-a1b2189995ceec2929a312b637a7116d.scn"]
+source_file="res://art/robo.glb"
+dest_files=["res://.godot/imported/robo.glb-30a5b75f0f103378b244043c20a2928c.scn"]
 
 [params]
 
