@@ -28,4 +28,3 @@ stream_5/weight = 1.0
 [node name="MusicPlayer" type="AudioStreamPlayer"]
 stream = SubResource("AudioStreamRandomizer_8nx4p")
 volume_db = -0.754
-autoplay = true

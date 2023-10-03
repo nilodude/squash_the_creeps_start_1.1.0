@@ -85,12 +85,12 @@ mesh = SubResource("CylinderMesh_n6t6g")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Cylinders"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1786, 0.933423, 24.3241)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3888, 1.02672, 26.0645)
 mesh = SubResource("CylinderMesh_n6t6g")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Cylinders"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3949, 0.933423, 24.3489)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3949, 0.933423, 26.0894)
 mesh = SubResource("CylinderMesh_n6t6g")
 skeleton = NodePath("")
 

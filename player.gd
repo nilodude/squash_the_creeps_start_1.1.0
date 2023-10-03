@@ -43,8 +43,8 @@ func _physics_process(delta):
 	if not is_on_floor(): # FALLING. Literally gravity
 		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
 		$AnimationPlayer.speed_scale = 1.5
-		$Pivot.rotation.x = PI / 10 * target_velocity.y / jump_impulse
-		$Pivot/avion/Plane.rotation.z = PI + PI * target_velocity.y / 25 # por la stance del robot (switch) -> poisitivo heelflip, negativo kickflip
+		$Pivot.rotation.x = PI / 10 * target_velocity.y / jump_impulse 
+		$Pivot/avion/Plane.rotation.z = -PI - PI * target_velocity.y / 25 # por la stance del robot (switch) -> poisitivo heelflip, negativo kickflip
 	else:	# JUMPING.
 		$Pivot.rotation.x = $Pivot.rotation.x - $Pivot.rotation.x/2
 		$Pivot/avion/Plane.rotation.z = $Pivot/avion/Plane.rotation.z - $Pivot/avion/Plane.rotation.z/2
