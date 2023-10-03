@@ -64,16 +64,18 @@ shadow_blur = 2.381
 collision_mask = 6
 
 [node name="CameraPivot" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.717507, 0.696552, 0, -0.696552, 0.717507, 0, 13.8382, 15.7706)
+transform = Transform3D(1, 0, 0, 0, 0.743285, 0.668975, 0, -0.668975, 0.743285, 0, 18.6159, 34.4704)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.99402, -0.109197, 0, 0.109197, 0.99402, 0, -1.01467, 1.0452)
-projection = 1
+current = true
+fov = 55.9
 size = 26.999
 near = 0.001
 far = 404.59
 
 [node name="Cylinders" type="Node3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cylinders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4102, 0.933423, -23.8128)
